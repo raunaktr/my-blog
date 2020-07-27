@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class NewPost extends Component {
   state = {
@@ -6,6 +7,18 @@ class NewPost extends Component {
     content: "",
     author: "Raunak",
   };
+
+  postDataHandler = () => {
+    const data = {
+      title: this.state.title,
+      content: this.state.body,
+      author: this.state.author,
+    };
+    axios.post("/posts/", data).then((response) => {
+      console.log(response);
+    });
+  };
+
   render() {
     return (
       <div className="NewPost">
@@ -17,19 +30,20 @@ class NewPost extends Component {
           onChange={(event) => this.setState({ title: event.target.value })}
         />
         <label>Content</label>
-        <input
-          type="text"
+        <textarea
+          rows="4"
           value={this.state.content}
           onChange={(event) => this.setState({ content: event.target.value })}
         />
+        <label>Author</label>
         <select
           value={this.state.author}
           onChange={(event) => this.setState({ author: event.target.value })}
         >
           <option value="Raunak">Raunak</option>
-          <option value="test">test</option>
+          <option value="Max">Max</option>
         </select>
-        <button>Add Post</button>
+        <button onClick={this.postDataHandler}>Add Post</button>
       </div>
     );
   }

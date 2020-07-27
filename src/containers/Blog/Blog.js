@@ -8,6 +8,7 @@ import NewPost from "../../components/NewPost/NewPost";
 class Blog extends Component {
   state = {
     posts: [],
+    selectedPostId: null,
     error: false,
   };
 
@@ -16,24 +17,35 @@ class Blog extends Component {
       .get("/posts")
       .then((response) => {
         const posts = response.data.slice(0, 4);
-        const updatedPost = posts.map((post) => {
+        const updatedPosts = posts.map((post) => {
           return {
             ...post,
             author: "Raunak",
           };
         });
-        this.setState({ posts: updatedPost });
+        this.setState({ posts: updatedPosts });
       })
       .catch((error) => {
         this.setState({ error: true });
       });
   }
 
+  postSelectedHandler = (id) => {
+    this.setState({ selectedPostId: id });
+  };
+
   render() {
-    let posts = <p> Something went wrong</p>;
+    let posts = <p>Something went wrong...</p>;
     if (!this.state.error) {
       posts = this.state.posts.map((post) => {
-        return <Post key={post.id} title={post.title} author={this.author} />;
+        return (
+          <Post
+            key={post.id}
+            title={post.title}
+            author={post.author}
+            clicked={() => this.postSelectedHandler(post.id)}
+          />
+        );
       });
     }
 
@@ -41,7 +53,7 @@ class Blog extends Component {
       <div>
         <section className="Posts">{posts}</section>
         <section>
-          <FullPost />
+          <FullPost id={this.state.selectedPostId} />
         </section>
         <section>
           <NewPost />
