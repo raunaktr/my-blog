@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Button from '../Button'
+import Button from "../Button";
+import { H2 } from "../Heading";
 
 class NewPost extends Component {
   state = {
@@ -23,7 +24,7 @@ class NewPost extends Component {
   render() {
     return (
       <div className="NewPost">
-        <h1>Add a Post</h1>
+        <H2>Add a Post</H2>
         <label>Title</label>
         <input
           type="text"
