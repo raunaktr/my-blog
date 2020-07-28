@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Paragraph from "../Paragraph";
-import { H2 } from "../Heading";
 import Button from "../Button";
+import Card from "../Card";
+import CardGrid from "../CardGrid";
 
 class FullPost extends Component {
   state = {
@@ -36,13 +37,19 @@ class FullPost extends Component {
     if (this.state.loadedPost) {
       post = (
         <div className="FullPost">
-          <H2>{this.state.loadedPost.title}</H2>
-          <Paragraph>{this.state.loadedPost.body}</Paragraph>
-          <div className="Edit">
-            <Button className="Delete" onClick={this.deletePostHandler}>
-              Delete
-            </Button>
-          </div>
+          <CardGrid>
+            <Card>
+              <Card.Title>{this.state.loadedPost.title}</Card.Title>
+              <Card.Body>
+                <Paragraph>{this.state.loadedPost.body}</Paragraph>
+              </Card.Body>
+              <Card.FinePrint>
+                <Button className="Delete" onClick={this.deletePostHandler}>
+                  Delete
+                </Button>
+              </Card.FinePrint>
+            </Card>
+          </CardGrid>
         </div>
       );
     }
