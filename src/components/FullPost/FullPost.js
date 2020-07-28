@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Paragraph from "../Paragraph";
+import { H2 } from "../Heading";
+import Button from "../Button";
 
 class FullPost extends Component {
   state = {
@@ -26,19 +29,19 @@ class FullPost extends Component {
   };
 
   render() {
-    let post = <p>Please Select a Post</p>;
+    let post = <Paragraph centered>Please Select a Post</Paragraph>;
     if (this.props.id) {
-      post = <p>Loading...</p>;
+      post = <Paragraph>Loading...</Paragraph>;
     }
     if (this.state.loadedPost) {
       post = (
         <div className="FullPost">
-          <h1>{this.state.loadedPost.title}</h1>
-          <p>{this.state.loadedPost.body}</p>
+          <H2>{this.state.loadedPost.title}</H2>
+          <Paragraph>{this.state.loadedPost.body}</Paragraph>
           <div className="Edit">
-            <button className="Delete" onClick={this.deletePostHandler}>
+            <Button className="Delete" onClick={this.deletePostHandler}>
               Delete
-            </button>
+            </Button>
           </div>
         </div>
       );

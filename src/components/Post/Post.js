@@ -1,8 +1,9 @@
 import React from "react";
+import { H3 } from '../Heading'
 
 const post = (props) => (
   <article className="Post" onClick={props.clicked}>
-    <h1>{props.title}</h1>
+    <H3>{props.title}</H3>
     <div className="Info">
       <div className="Author">{props.author}</div>
     </div>
