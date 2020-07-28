@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Button from '../Button'
 
 class NewPost extends Component {
   state = {
@@ -43,7 +44,7 @@ class NewPost extends Component {
           <option value="Raunak">Raunak</option>
           <option value="Max">Max</option>
         </select>
-        <button onClick={this.postDataHandler}>Add Post</button>
+        <Button onClick={this.postDataHandler}>Add Post</Button>
       </div>
     );
   }
