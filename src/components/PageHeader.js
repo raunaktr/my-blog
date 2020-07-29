@@ -1,7 +1,5 @@
 import React from "react";
-import styled from "styled-components";
 import { Flex } from "rebass";
-import SubLayout from "./SubLayout";
 import { H2 } from "./Heading";
 import Head from "./Head";
 
