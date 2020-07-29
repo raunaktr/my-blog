@@ -5,7 +5,7 @@ import WideSection from "../WideSection";
 
 const post = (props) => (
   <WideSection>
-    <Card key={post.id}>
+    <Card hover={false} key={post.id}>
       <article className="Post" onClick={props.clicked}>
         <H3>{props.title}</H3>
         <div className="Info">
