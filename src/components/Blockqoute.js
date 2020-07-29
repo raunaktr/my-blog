@@ -19,7 +19,7 @@ const Blockqoute = styled(Text).attrs({
     display: block;
     font-size: 5pc;
     content: "\\201C";
-    postion: absolute;
+    position: absolute;
     left: -1rem;
     top: -1rem;
     line-height: initial;
