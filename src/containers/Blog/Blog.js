@@ -8,7 +8,8 @@ import Main from "../../components/Main";
 import Layout from "../../components/Layout";
 import SubLayout from "../../components/SubLayout";
 import PageHeader from "../../components/PageHeader";
-import Paragraph from "../../components/Paragraph";
+import WideSection from "../../components/WideSection";
+import CardGrid from "../../components/CardGrid";
 
 class Blog extends Component {
   state = {
@@ -42,29 +43,34 @@ class Blog extends Component {
   render() {
     let posts = <p>Something went wrong...</p>;
     if (!this.state.error) {
-      posts = this.state.posts.map((post) => {
-        return (
-          <Post
-            key={post.id}
-            title={post.title}
-            author={post.author}
-            clicked={() => this.postSelectedHandler(post.id)}
-          />
-        );
-      });
+      posts = this.state.posts
+        .filter((post) => post.id)
+        .map((post) => {
+          return (
+            <Post
+              key={post.id}
+              title={post.title}
+              author={post.author}
+              clicked={() => this.postSelectedHandler(post.id)}
+            />
+          );
+        });
     }
 
     return (
       <Main>
         <PageHeader title="Hey, i'm raunak!"></PageHeader>
-        <Layout>
-          <SubLayout>{posts}</SubLayout>
-          <SubLayout>
+        <WideSection>
+          <CardGrid>{posts}</CardGrid>
+        </WideSection>
+        <hr />
+        <WideSection>
+          <CardGrid>
             <FullPost id={this.state.selectedPostId} />
-          </SubLayout>
+          </CardGrid>
+        </WideSection>
 
-          <NewPost />
-        </Layout>
+        <NewPost />
       </Main>
     );
   }
