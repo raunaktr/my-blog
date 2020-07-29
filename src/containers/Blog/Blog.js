@@ -4,6 +4,11 @@ import axios from "../../axios";
 import Post from "../../components/Post/Post";
 import FullPost from "../../components/FullPost/FullPost";
 import NewPost from "../../components/NewPost/NewPost";
+import Main from "../../components/Main";
+import Layout from "../../components/Layout";
+import SubLayout from "../../components/SubLayout";
+import PageHeader from "../../components/PageHeader";
+import Paragraph from "../../components/Paragraph";
 
 class Blog extends Component {
   state = {
@@ -50,15 +55,17 @@ class Blog extends Component {
     }
 
     return (
-      <div>
-        <section className="Posts">{posts}</section>
-        <section>
-          <FullPost id={this.state.selectedPostId} />
-        </section>
-        <section>
+      <Main>
+        <PageHeader title="Hey, i'm raunak!"></PageHeader>
+        <Layout>
+          <SubLayout>{posts}</SubLayout>
+          <SubLayout>
+            <FullPost id={this.state.selectedPostId} />
+          </SubLayout>
+
           <NewPost />
-        </section>
-      </div>
+        </Layout>
+      </Main>
     );
   }
 }
