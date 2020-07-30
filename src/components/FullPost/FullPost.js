@@ -36,21 +36,19 @@ class FullPost extends Component {
     }
     if (this.state.loadedPost) {
       post = (
-        <div className="FullPost">
-          <CardGrid>
-            <Card>
-              <Card.Title>{this.state.loadedPost.title}</Card.Title>
-              <Card.Body>
-                <Paragraph>{this.state.loadedPost.body}</Paragraph>
-              </Card.Body>
-              <Card.FinePrint>
-                <Button className="Delete" onClick={this.deletePostHandler}>
-                  Delete
-                </Button>
-              </Card.FinePrint>
-            </Card>
-          </CardGrid>
-        </div>
+        <CardGrid>
+          <Card>
+            <Card.Title>{this.state.loadedPost.title}</Card.Title>
+            <Card.Body>
+              <Paragraph>{this.state.loadedPost.body}</Paragraph>
+            </Card.Body>
+            <Card.FinePrint>
+              <Button className="Delete" onClick={this.deletePostHandler}>
+                Delete
+              </Button>
+            </Card.FinePrint>
+          </Card>
+        </CardGrid>
       );
     }
     return post;
