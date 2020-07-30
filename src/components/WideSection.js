@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Box } from "rebass";
 
 const WideSection = styled(Box)`
-  @media screen and (max-width: ${(props) => props.theme.breakpoints}) {
+  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
     max-width: 100%;
   }
 `;

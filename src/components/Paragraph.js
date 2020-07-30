@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Text from "./Text";
 
 const Wrapper = styled(Box)`
-  max-wdith: 35em;
+  max-width: 35em;
   width: 100%;
   position: relative;
   z-index: 1;
