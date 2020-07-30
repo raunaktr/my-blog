@@ -5,8 +5,6 @@ import Post from "../../components/Post/Post";
 import FullPost from "../../components/FullPost/FullPost";
 import NewPost from "../../components/NewPost/NewPost";
 import Main from "../../components/Main";
-import Layout from "../../components/Layout";
-import SubLayout from "../../components/SubLayout";
 import PageHeader from "../../components/PageHeader";
 import WideSection from "../../components/WideSection";
 import CardGrid from "../../components/CardGrid";
