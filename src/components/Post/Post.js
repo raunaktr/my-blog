@@ -4,14 +4,10 @@ import Card from "../Card";
 import WideSection from "../WideSection";
 
 const post = (props) => (
-  <WideSection>
-    <Card hover={false} key={post.id}>
-      <article className="Post" onClick={props.clicked}>
-        <H3>{props.title}</H3>
-        <div className="Info">
-          <div className="Author">{props.author}</div>
-        </div>
-      </article>
+  <WideSection width="250px">
+    <Card px={1.5} py={1.5} hover={false} key={post.id} onClick={props.clicked}>
+      <H3>{props.title}</H3>
+      <Card.FinePrint>{props.author}</Card.FinePrint>
     </Card>
   </WideSection>
 );
