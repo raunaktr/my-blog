@@ -8,6 +8,7 @@ import Main from "../../components/Main";
 import PageHeader from "../../components/PageHeader";
 import WideSection from "../../components/WideSection";
 import CardGrid from "../../components/CardGrid";
+import Paragraph from "../../components/Paragraph";
 
 class Blog extends Component {
   state = {
@@ -39,7 +40,7 @@ class Blog extends Component {
   };
 
   render() {
-    let posts = <p>Something went wrong...</p>;
+    let posts = <Paragraph>Something went wrong...</Paragraph>;
     if (!this.state.error) {
       posts = this.state.posts
         .filter((post) => post.id)
@@ -58,8 +59,14 @@ class Blog extends Component {
     return (
       <Main>
         <PageHeader title="Hey, i'm raunak!"></PageHeader>
-        <WideSection>
-          <CardGrid>{posts}</CardGrid>
+        <WideSection
+          sx={{
+            display: "grid",
+            gridGap: 10,
+            gridTemplateColumns: "repeat(auto-fit, minmax(128px, 1fr))",
+          }}
+        >
+          {posts}
         </WideSection>
         <hr />
         <WideSection>
