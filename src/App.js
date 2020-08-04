@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Blog from "./containers/Blog/Blog";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
+import { BrowserRouter } from "react-router-dom";
 
 import Head from "./components/Head";
 import Layout from "./components/Layout";
@@ -21,7 +22,7 @@ const theme = {
     secondary: colors.greys[4],
     tertiary: colors.greys[3],
     quaternary: colors.greys[2],
-    ...colors
+    ...colors,
   },
   breakpoints: ["850px", "1100px", "64em"],
   fonts: {
@@ -62,21 +63,21 @@ export const DEFAULT_TITLE = "Raunak Tripathi";
 class App extends Component {
   render() {
     return (
-      // <div className="App">
-      <ThemeProvider theme={theme}>
-        <Head title={DEFAULT_TITLE} />
-        <Layout
-          pt={[`${NAV_HEIGHT}px`, `${NAV_HEIGHT / 2}px`]}
-          css={{
-            paddingLeft: "8px",
-            paddingRight: "8px",
-          }}
-        >
-          <GlobalStyle />
-          <Blog />
-        </Layout>
-      </ThemeProvider>
-      // </div>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Head title={DEFAULT_TITLE} />
+          <Layout
+            pt={[`${NAV_HEIGHT}px`, `${NAV_HEIGHT / 2}px`]}
+            css={{
+              paddingLeft: "8px",
+              paddingRight: "8px",
+            }}
+          >
+            <GlobalStyle />
+            <Blog />
+          </Layout>
+        </ThemeProvider>
+      </BrowserRouter>
     );
   }
 }
