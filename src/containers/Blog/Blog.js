@@ -5,12 +5,13 @@ import PageHeader from "../../components/PageHeader";
 import Posts from "../../components/Posts/Posts";
 import NewPost from "../../components/NewPost/NewPost";
 import { Route, NavLink } from "react-router-dom";
+import classes from "./Blog.css";
 
 class Blog extends Component {
   render() {
     return (
       <Main>
-        <nav>
+        <nav className={classes.Blog}>
           <ul>
             <li>
               <NavLink to="/" exact>
