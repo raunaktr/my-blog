@@ -4,8 +4,9 @@ import Main from "../../components/Main";
 import PageHeader from "../../components/PageHeader";
 import Posts from "../../components/Posts/Posts";
 import NewPost from "../../components/NewPost/NewPost";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Switch } from "react-router-dom";
 import classes from "./Blog.css";
+import FullPost from "../../components/FullPost/FullPost";
 
 class Blog extends Component {
   render() {
@@ -25,6 +26,7 @@ class Blog extends Component {
                   hash: "#submit",
                   search: "?quick-submit=true",
                 }}
+                exact
               >
                 New Post
               </NavLink>
@@ -34,7 +36,10 @@ class Blog extends Component {
         <PageHeader title="Hey, i'm raunak!"></PageHeader>
         <hr />
         <Route path="/" exact component={Posts} />
-        <Route path="/new-post" component={NewPost} />
+        <Switch>
+          <Route path="/new-post" component={NewPost} />
+          <Route path="/:id" exact component={FullPost} />
+        </Switch>
       </Main>
     );
   }

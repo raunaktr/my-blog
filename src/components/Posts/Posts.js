@@ -23,12 +23,13 @@ class Posts extends Component {
         this.setState({ posts: updatedPosts });
       })
       .catch((error) => {
-        this.setState({ error: true });
+        console.log(error);
+        // this.setState({ error: true });
       });
   }
 
   postSelectedHandler = (id) => {
-    this.setState({ selectedPostId: id });
+    this.props.history.push({ pathname: "/" + id });
   };
 
   render() {
